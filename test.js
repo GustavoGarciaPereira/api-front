@@ -51,8 +51,9 @@ function mostrar_dados_tela(dados){
         `
         <tr>
             <td>${dados.nome}</td>
-            <td>${dados.liguagem_atualmente}</td>
             <td>${dados.data_nascimento}</td>
+            <td>${dados.liguagem_atualmente}</td>
+
 
             
         </tr>

@@ -13,7 +13,7 @@
 function busca() {
     $.ajax({
         //url: `https://primeira-api-django.herokuapp.com/programador/`,
-        url: `http://127.0.0.1:8000/programador/programadores/?nome=${document.getElementById("nome").value}&?liguagem_atualmente=${document.getElementById("linguagem").value}`,
+        url: `https://primeira-api-django.herokuapp.com/programador/programadores/?nome=${document.getElementById("nome").value}&?liguagem_atualmente=${document.getElementById("linguagem").value}`,
 
         success: function(result) {
             limpar_tela()

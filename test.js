@@ -1,43 +1,29 @@
-function add(){
-    adicionar()
-}
-
-document.getElementById('item').addEventListener('blur',(event)=>{
-    adicionar()
-})
-
-document.getElementById('item').addEventListener('keypress',(e)=>{
-    if(e.which == 13){
-        adicionar()
-    }
-},false)
-
-//function adicionar(){
-//    const novo_item = document.getElementById("item").value
-//    if (novo_item != '' && novo_item.length >= 3){
-//        document.getElementById("lista").innerHTML += `<li>${novo_item}</li>`
-//        document.getElementById("item").value = ''
+//document.getElementById('item').addEventListener('blur', (event) => {
+//    busca()
+//})
+//
+//document.getElementById('item').addEventListener('keypress', (e) => {
+//    if (e.which == 13) {
+//        busca()
 //    }
-//}
-
-function busca(){
-    //console.log("busca",novo_item)
-    //console.log(document.getElementById("item"))
+//}, false)
 
 
+
+function busca() {
     $.ajax({
-        url: `https://primeira-api-django.herokuapp.com/programador/`,
-        //url:`http://127.0.0.1:8000/programador/`,
+        //url: `https://primeira-api-django.herokuapp.com/programador/`,
+        url: `http://127.0.0.1:8000/programador/programadores/?nome=${document.getElementById("nome").value}&?liguagem_atualmente=${document.getElementById("linguagem").value}`,
 
-        success: function(result){
+        success: function(result) {
             limpar_tela()
-            result.map(function(dados){
+            result.map(function(dados) {
                 mostrar_dados_tela(dados)
             });
-        
+
         },
-        error: function(result){
-            console.log("<>",result);
+        error: function(result) {
+            console.log("<>", result);
         }
     })
 }
@@ -45,24 +31,18 @@ function busca(){
 
 //// tabela no html
 
-function mostrar_dados_tela(dados){
+function mostrar_dados_tela(dados) {
 
-        document.getElementById("dados").innerHTML += 
+    document.getElementById("dados").innerHTML +=
         `
         <tr>
             <td>${dados.nome}</td>
             <td>${dados.data_nascimento}</td>
-            <td>${dados.liguagem_atualmente}</td>
-
-
-            
+            <td>${dados.liguagem_atualmente}</td>            
         </tr>
         `
 }
 
-function limpar_tela(){
+function limpar_tela() {
     document.getElementById("dados").innerHTML = ''
 }
-
-//detalhes
-//http://www.omdbapi.com/?i=tt0211915&apikey=6b325277

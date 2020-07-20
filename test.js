@@ -11,10 +11,13 @@
 
 
 function busca() {
+    console.log(document.getElementById("nome").value)
+    console.log(document.getElementById("linguagem").value)
     $.ajax({
         //url: `https://primeira-api-django.herokuapp.com/programador/`,
-        url: `https://primeira-api-django.herokuapp.com/programador/programadores/?nome=${document.getElementById("nome").value}&?liguagem_atualmente=${document.getElementById("linguagem").value}`,
+        url: `https://primeira-api-django.herokuapp.com/programador/programadores/?nome=${document.getElementById("nome").value}&liguagem_atualmente=${document.getElementById("linguagem").value}`,
 
+        //url: `http://127.0.0.1:8000/programador/programadores/?nome=${document.getElementById("nome").value}&liguagem_atualmente=${document.getElementById("linguagem").value}`,
         success: function(result) {
             limpar_tela()
             result.map(function(dados) {
